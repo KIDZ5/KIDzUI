@@ -1,3 +1,5 @@
+<img src="assets/111263549366178.png" alt="KIDzUI" width="100%">
+
 ## ⚡ คุณสมบัติ (Features)
 
 
