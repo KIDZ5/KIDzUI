@@ -113,7 +113,7 @@ local InterfaceBuild = 'KIDZX'
 local Release = "Build 1.0.0"
 local KIDzUIFolder = "KIDzUI"
 local ConfigurationFolder = KIDzUIFolder.."/Configurations"
-local ConfigurationExtension = ".rfld"
+local ConfigurationExtension = ".kidzui"
 local settingsTable = {
 	General = {
 		-- if needs be in order just make getSetting(name)
