@@ -25,7 +25,7 @@ local CoreGui = getService("CoreGui")
 -- Loads and executes a function hosted on a remote URL. Cancels the request if the requested URL takes too long to respond.
 -- Errors with the function are caught and logged to the output
 local function loadWithTimeout(url: string, timeout: number?): ...any
-	assert(type(url) == "string", ""ต้องการข้อมูลประเภทข้อความ แต่ได้รับ " .. type(url))
+	assert(type(url) == "string", "Expected string, got " .. type(url))
 	timeout = timeout or 5
 	local requestCompleted = false
 	local success, result = false, nil
@@ -53,7 +53,7 @@ local function loadWithTimeout(url: string, timeout: number?): ...any
 		if not requestCompleted then
 			warn("คำขอสำหรับ " .. url .. " หมดเวลาหลังจาก " .. tostring(timeout) .. " วินาที")
 			task.cancel(requestThread)
-			result = "คำขอหมดเวลา"
+			result = "Request timed out"
 			requestCompleted = true
 		end
 	end)
@@ -2756,16 +2756,16 @@ function KIDzUILibrary:CreateWindow(Settings)
 					if #DropdownSettings.CurrentOption == 1 then
 						Dropdown.Selected.Text = DropdownSettings.CurrentOption[1]
 					elseif #DropdownSettings.CurrentOption == 0 then
-						Dropdown.Selected.Text = "ไม่มีค่า"
+						Dropdown.Selected.Text = "None"
 					else
-						Dropdown.Selected.Text = "หลายตัวเลือก"
+						Dropdown.Selected.Text = "Various"
 					end
 				else
 					DropdownSettings.CurrentOption = {}
-					Dropdown.Selected.Text = "ไม่มีค่า"
+					Dropdown.Selected.Text = "None"
 				end
 			else
-				Dropdown.Selected.Text = DropdownSettings.CurrentOption[1] or "ไม่มีค่า"
+				Dropdown.Selected.Text = DropdownSettings.CurrentOption[1] or "None"
 			end
 
 			Dropdown.Toggle.ImageColor3 = SelectedTheme.TextColor
@@ -2874,9 +2874,9 @@ function KIDzUILibrary:CreateWindow(Settings)
 								if #DropdownSettings.CurrentOption == 1 then
 									Dropdown.Selected.Text = DropdownSettings.CurrentOption[1]
 								elseif #DropdownSettings.CurrentOption == 0 then
-									Dropdown.Selected.Text = "ไม่มีค่า"
+									Dropdown.Selected.Text = "None"
 								else
-									Dropdown.Selected.Text = "หลายตัวเลือก"
+									Dropdown.Selected.Text = "Various"
 								end
 							else
 								Dropdown.Selected.Text = DropdownSettings.CurrentOption[1]
@@ -2890,9 +2890,9 @@ function KIDzUILibrary:CreateWindow(Settings)
 								if #DropdownSettings.CurrentOption == 1 then
 									Dropdown.Selected.Text = DropdownSettings.CurrentOption[1]
 								elseif #DropdownSettings.CurrentOption == 0 then
-									Dropdown.Selected.Text = "ไม่มีค่า"
+									Dropdown.Selected.Text = "None"
 								else
-									Dropdown.Selected.Text = "หลายตัวเลือก"
+									Dropdown.Selected.Text = "Various"
 								end
 							else
 								Dropdown.Selected.Text = DropdownSettings.CurrentOption[1]
@@ -2985,9 +2985,9 @@ function KIDzUILibrary:CreateWindow(Settings)
 					if #DropdownSettings.CurrentOption == 1 then
 						Dropdown.Selected.Text = DropdownSettings.CurrentOption[1]
 					elseif #DropdownSettings.CurrentOption == 0 then
-						Dropdown.Selected.Text = "ไม่มีค่า"
+						Dropdown.Selected.Text = "None"
 					else
-						Dropdown.Selected.Text = "หลายตัวเลือก"
+						Dropdown.Selected.Text = "Various"
 					end
 				else
 					Dropdown.Selected.Text = DropdownSettings.CurrentOption[1]
@@ -3718,7 +3718,7 @@ Main.Search.Input:GetPropertyChangedSignal('Text'):Connect(function()
 			searchTitle.Parent = Elements.UIPageLayout.CurrentPage
 			searchTitle.Name = 'SearchTitle-fsefsefesfsefesfesfThanks'
 			searchTitle.LayoutOrder = -100
-			searchTitle.Title.Text = "ผลลัพธ์จาก '"..Elements.UIPageLayout.CurrentPage.Name.."'"
+			searchTitle.Title.Text = "Results from '"..Elements.UIPageLayout.CurrentPage.Name.."'"
 			searchTitle.Visible = true
 		end
 	else
