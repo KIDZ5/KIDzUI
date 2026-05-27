@@ -2756,16 +2756,16 @@ function KIDzUILibrary:CreateWindow(Settings)
 					if #DropdownSettings.CurrentOption == 1 then
 						Dropdown.Selected.Text = DropdownSettings.CurrentOption[1]
 					elseif #DropdownSettings.CurrentOption == 0 then
-						Dropdown.Selected.Text = "ไม่มีค่า"
+						Dropdown.Selected.Text = "None"
 					else
-						Dropdown.Selected.Text = "หลายตัวเลือก"
+						Dropdown.Selected.Text = "Various"
 					end
 				else
 					DropdownSettings.CurrentOption = {}
-					Dropdown.Selected.Text = "ไม่มีค่า"
+					Dropdown.Selected.Text = "None"
 				end
 			else
-				Dropdown.Selected.Text = DropdownSettings.CurrentOption[1] or "ไม่มีค่า"
+				Dropdown.Selected.Text = DropdownSettings.CurrentOption[1] or "None"
 			end
 
 			Dropdown.Toggle.ImageColor3 = SelectedTheme.TextColor
@@ -2874,9 +2874,9 @@ function KIDzUILibrary:CreateWindow(Settings)
 								if #DropdownSettings.CurrentOption == 1 then
 									Dropdown.Selected.Text = DropdownSettings.CurrentOption[1]
 								elseif #DropdownSettings.CurrentOption == 0 then
-									Dropdown.Selected.Text = "ไม่มีค่า"
+									Dropdown.Selected.Text = "None"
 								else
-									Dropdown.Selected.Text = "หลายตัวเลือก"
+									Dropdown.Selected.Text = "Various"
 								end
 							else
 								Dropdown.Selected.Text = DropdownSettings.CurrentOption[1]
@@ -2890,9 +2890,9 @@ function KIDzUILibrary:CreateWindow(Settings)
 								if #DropdownSettings.CurrentOption == 1 then
 									Dropdown.Selected.Text = DropdownSettings.CurrentOption[1]
 								elseif #DropdownSettings.CurrentOption == 0 then
-									Dropdown.Selected.Text = "ไม่มีค่า"
+									Dropdown.Selected.Text = "None"
 								else
-									Dropdown.Selected.Text = "หลายตัวเลือก"
+									Dropdown.Selected.Text = "Various"
 								end
 							else
 								Dropdown.Selected.Text = DropdownSettings.CurrentOption[1]
@@ -2985,9 +2985,9 @@ function KIDzUILibrary:CreateWindow(Settings)
 					if #DropdownSettings.CurrentOption == 1 then
 						Dropdown.Selected.Text = DropdownSettings.CurrentOption[1]
 					elseif #DropdownSettings.CurrentOption == 0 then
-						Dropdown.Selected.Text = "ไม่มีค่า"
+						Dropdown.Selected.Text = "None"
 					else
-						Dropdown.Selected.Text = "หลายตัวเลือก"
+						Dropdown.Selected.Text = "Various"
 					end
 				else
 					Dropdown.Selected.Text = DropdownSettings.CurrentOption[1]
