@@ -25,7 +25,7 @@ local CoreGui = getService("CoreGui")
 -- Loads and executes a function hosted on a remote URL. Cancels the request if the requested URL takes too long to respond.
 -- Errors with the function are caught and logged to the output
 local function loadWithTimeout(url: string, timeout: number?): ...any
-	assert(type(url) == "string", "Expected string, got " .. type(url))
+	assert(type(url) == "string", "ต้องการข้อมูลแบบข้อความ (String) แต่ได้รับ " .. type(url))
 	timeout = timeout or 5
 	local requestCompleted = false
 	local success, result = false, nil
@@ -53,7 +53,7 @@ local function loadWithTimeout(url: string, timeout: number?): ...any
 		if not requestCompleted then
 			warn("คำขอสำหรับ " .. url .. " หมดเวลาหลังจาก " .. tostring(timeout) .. " วินาที")
 			task.cancel(requestThread)
-			result = "Request timed out"
+			result = "หมดเวลารอข้อมูล"
 			requestCompleted = true
 		end
 	end)
@@ -1131,7 +1131,7 @@ local function LoadConfiguration(Configuration)
 		else
 			warn("KIDzUI | ไม่สามารถค้นหา '"..FlagName.."' ในไฟล์บันทึกข้อมูลได้")
 			print("ข้อความแจ้งเตือนข้างต้นอาจไม่ถือเป็นข้อผิดพลาด หากเป็นกรณีที่ระบบมีการอัปเดตฟีเจอร์ใหม่ หรือฟีเจอร์เหล่านั้นยังไม่มีการตั้งค่าเริ่มต้น")
-			--KIDzUILibrary:Notify({Title = "KIDzUI Flags", Content = "KIDzUI was unable to find '"..FlagName.. "' in the save file. Check kidz.menu/discord for help.", Image = 3944688398})
+			--KIDzUILibrary:Notify({Title = "KIDzUI Flags", Content = "KIDzUI ไม่สามารถค้นหา '"..FlagName.. "' ได้ในไฟล์บันทึก ตรวจสอบ https://github.com/KIDZ5/KIDzUI เพื่อขอความช่วยเหลือ", Image = 3944688398})
 		end
 	end
 
@@ -1726,7 +1726,7 @@ function KIDzUILibrary:CreateWindow(Settings)
 	LoadingFrame.Subtitle.Text = Settings.LoadingSubtitle or "Interface Suite"
 
 	if Settings.LoadingTitle ~= "KIDzUI Interface Suite" then
-		LoadingFrame.Version.Text = "KIDzUI UI"
+		LoadingFrame.Version.Text = "KIDz UI"
 	end
 
 	if Settings.Icon and Settings.Icon ~= 0 and Topbar:FindFirstChild('Icon') then
@@ -3859,7 +3859,7 @@ function KIDzUILibrary:LoadConfiguration()
 		end)
 
 		if success and loaded and not notified then
-			KIDzUILibrary:Notify({Title = "การตั้งค่า KIDzUI", Content = "The configuration file for this script has been loaded from a previous session.", Image = 4384403532})
+			KIDzUILibrary:Notify({Title = "การตั้งค่า KIDzUI", Content = "ไฟล์การตั้งค่าสำหรับสคริปต์นี้ถูกโหลดมาจากการตั้งค่าก่อนหน้านี้แล้ว", Image = 4384403532})
 		elseif not success and not notified then
 			warn('พบข้อผิดพลาดในการตั้งค่าของ KIDzUI | '..tostring(result))
 			KIDzUILibrary:Notify({Title = "การตั้งค่า KIDzUI", Content = "เกิดข้อผิดพลาดในการโหลดการตั้งค่าของคุณโปรดตรวจสอบ Developer Console เพื่อดูข้อมูลเพิ่มเติม", Image = 4384402990})
