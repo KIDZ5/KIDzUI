@@ -1772,8 +1772,8 @@ function KIDzUILibrary:CreateWindow(Settings)
 				task.wait(math.random(180, 600))
 				if kidzuiDestroyed then break end
 				KIDzUILibrary:Notify({
-					Title = "UI ของ KIDzUI",
-					Content = "ขอให้สนุกกับ UI Library นี้นะ",
+					Title = "KIDz HUB",
+					Content = "ขอให้สนุกกับสคริปค่าย KIDz HUB นะ",
 					Duration = 7,
 					Image = 4370033185,
 				})
